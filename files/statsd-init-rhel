@@ -43,7 +43,8 @@ start() {
     # Daemon is not running, but pidfile exists.
     echo -n $'Clearing stale pidfile, '
     rm -f ${pidfile} ${lockfile} &>/dev/null || true
-    start || ret_val=${?}
+    start
+    ret_val=${?}
     ;;
   *)
     # The status command returns 3 for the correct state (daemon is stopped
